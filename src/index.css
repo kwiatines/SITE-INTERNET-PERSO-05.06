@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+
+  --color-burgundy: #3a0005;
+  --color-slate: #5f5e5b;
+  --color-surface-white: #f9f9f9;
+  --color-coal: #1b1b1b;
+  --color-stone-light: #ececea;
+
+  --animate-fade-in: fade-in 0.8s ease-out;
+  --animate-slide-up: slide-up 0.8s ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-surface-white text-coal font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-burgundy text-white px-8 py-3 rounded-none uppercase tracking-[0.2em] text-xs font-medium transition-all duration-300 hover:opacity-90 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border border-coal text-coal px-8 py-3 rounded-none uppercase tracking-[0.2em] text-xs font-medium transition-all duration-300 hover:bg-coal hover:text-white active:scale-[0.98];
+  }
+
+  .nav-link {
+    @apply uppercase tracking-[0.2em] text-[10px] font-medium transition-colors duration-200 hover:text-burgundy;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-12 py-24;
+  }
+}
